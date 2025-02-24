@@ -1,0 +1,31 @@
+---
+#this playbook is for creating a file in remote
+- name: File creation in remote
+  hosts: 35.238.209.55
+
+  tasks:
+    - name:  creating file in remote
+      file:
+        path: /tmp/newfile.txt
+        state: touch     
+        #state: absent   #to delete file          
+        owner: sai
+        group: sai
+        mode: u=rwx,g=rw,o=r
+
+
+    - name: Creating a directory
+      file:
+        path: /tmp/myfolder
+        state: directory           
+       #state: absent   #to delete directory       
+
+
+#changing file permissions of a file in remote ip
+    - name: change permissions
+      file:
+       path: /tmp/myfile.txt
+       mode: u=rwx,g=rw,o=r
+    
+
+

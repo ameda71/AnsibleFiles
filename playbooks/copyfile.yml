@@ -1,0 +1,15 @@
+---
+
+- name: Sending copy to  remote
+  hosts: all
+
+  tasks:
+    - name: Copy files
+      copy: 
+       src: /root/myfile.txt
+       dest: /tmp/
+       owner: sai
+       group: sai
+       mode: ugo=rw   #0777
+       backup: true 
+
