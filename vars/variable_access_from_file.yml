@@ -1,0 +1,19 @@
+---
+- name: Uninstall httpd service
+  hosts: 34.59.135.208
+  become: yes
+  vars_files:
+    - var.yml
+
+  tasks:
+    - name: Uninstall {{ web_package }}  from centos
+      yum:
+        name: "{{ web_package }}"
+        state: absent
+    - name: Ensure {{ web_package }} is stopped
+      systemd:
+        name: "{{ web_package }}"
+        state: stopped
+        enabled: no
+      ignore_errors: yes
+
