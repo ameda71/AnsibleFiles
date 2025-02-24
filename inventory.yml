@@ -1,0 +1,12 @@
+---
+- name: Install Git on teja group hosts
+  hosts: teja
+  become: yes
+  tasks:
+    - name: Install Git
+      package:
+        name: git
+        state: present
+    - name: Check Git version
+      command: git --version
+

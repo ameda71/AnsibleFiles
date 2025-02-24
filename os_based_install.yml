@@ -1,0 +1,18 @@
+---
+- name: Install Git only on Debian-based systems
+  hosts: teja
+  become: yes
+
+  tasks:
+    - name: Install Git (Debian-based)
+      package:
+        name: git
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Install Git (RedHat-based)
+      package:
+        name: git
+        state: present
+      when: ansible_os_family == "RedHat"
+

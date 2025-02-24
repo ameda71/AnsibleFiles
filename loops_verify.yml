@@ -1,0 +1,22 @@
+---
+- name: Install multiple packages
+  hosts: teja
+  become: yes
+
+  vars:
+    new_packages:
+      - curl
+      - tree
+
+  tasks:
+    - name: Install new required packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ new_packages }}"
+      register: package_installation
+
+    - name: Show installation results
+      debug:
+        var: package_installation
+

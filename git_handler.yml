@@ -1,0 +1,21 @@
+
+
+
+
+---
+- name: Install Git with a Handler
+  hosts: teja
+  become: yes
+
+  tasks:
+    - name: Install Git
+      package:
+        name: git
+        state: present
+      notify: Print success message
+
+  handlers:
+    - name: Print success message
+      debug:
+        msg: "Git was installed successfully!"
+

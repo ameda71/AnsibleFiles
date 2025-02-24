@@ -1,0 +1,14 @@
+---
+- name: Check Git Version on teja group hosts
+  hosts: teja
+  become: yes
+
+  tasks:
+    - name: Check Git version
+      command: git --version
+      register: git_version_output
+
+    - name: Display Git version
+      debug:
+        msg: "Git Version: {{ git_version_output.stdout }}"
+

@@ -1,0 +1,11 @@
+---
+- name: Uninstall Git
+  hosts: teja
+  become: yes
+
+  tasks:
+    - name: Remove Git
+      package:
+        name: git
+        state: absent
+

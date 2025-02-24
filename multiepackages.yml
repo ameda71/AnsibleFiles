@@ -1,0 +1,17 @@
+---
+- name: Install Multiple Packages
+  hosts: teja
+  become: yes
+
+  vars:
+    Packages:
+      - git
+      - vim
+      - wget
+  tasks:
+    - name: Install required Packages
+      package:
+        name: "{{ Packages }}"
+        state: present
+
+        

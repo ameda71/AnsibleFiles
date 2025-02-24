@@ -1,0 +1,16 @@
+---
+- name: Multiple User Creation
+  hosts: teja
+  become: yes
+
+  vars:
+    users:
+      - sai
+      - devops
+      - ansible_user
+  tasks:
+    - name: Create users
+      user: 
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users }}"

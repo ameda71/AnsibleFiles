@@ -1,0 +1,14 @@
+---
+- name: Install Git on teja group hosts
+  hosts: teja
+  become: yes
+
+  vars:
+    package_name: git
+
+  tasks:
+    - name: Install {{ package_name }}
+      package:
+        name: "{{ package_name }}"
+        state: present
+
