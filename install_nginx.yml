@@ -1,0 +1,13 @@
+---
+- name: Installing a package nginx
+  hosts: 34.171.247.46
+  become: yes
+
+  vars: 
+    package_name: nginx
+
+  tasks: 
+    - name: Install nginx package
+      apt:
+        name: "{{ package_name }}"
+        state: present
