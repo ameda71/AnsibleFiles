@@ -1,0 +1,20 @@
+---
+- name: Check if Apache (httpd) is running
+  hosts: 34.59.135.208
+  gather_facts: no
+  tasks:
+    - name: Check httpd service status
+      command: systemctl is-active httpd
+      register: httpd_status
+      ignore_errors: yes
+
+    - name: Print service status
+      debug:
+        msg: "Apache status: {{ httpd_status.stdout }}"
+
+    - name: Restart Apache if it's not running
+      service:
+        name: httpd
+        state: restarted
+      when: httpd_status.stdout != "active"
+

@@ -1,0 +1,14 @@
+---
+- name: Install multiple packages
+  hosts: teja
+  become: yes
+
+  tasks:
+    - name: Install multiple packages
+      package: 
+       name:
+        - curl
+        - tree
+        - htop
+       state: present
+
