@@ -1,0 +1,13 @@
+---
+- name : Read content of a file and use it
+  hosts: localhost
+  
+  tasks:
+    - name: read content of /tmp/info.txt
+      command: cat /tmp/info.txt
+      register: file_content
+    
+    - name: Print the file content
+      debug: 
+        msg: "File contains {{ file_content.stdout }}"
+

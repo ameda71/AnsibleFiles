@@ -1,0 +1,11 @@
+---
+- name: Variable output in console
+  hosts: localhost
+  vars_files:
+    - var.yml
+
+  tasks:
+    - name: Print the variable
+      debug:
+        msg: "The service was {{ web_package }}"
+

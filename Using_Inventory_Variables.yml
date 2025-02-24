@@ -1,0 +1,7 @@
+---
+- name: Use inventory variables
+  hosts: teja
+  tasks:
+    - name: Display HTTP port
+      debug:
+        msg: "The HTTP port is {{ http_port }}"
