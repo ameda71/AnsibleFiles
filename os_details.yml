@@ -1,0 +1,21 @@
+---
+- name: Gather and Print OS Details
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Print OS Name
+      debug:
+        msg: "Operating System: {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_distribution_release }})"
+
+    - name: Print Kernel Version
+      debug:
+        msg: "Kernel Version: {{ ansible_kernel }}"
+
+    - name: Print Architecture
+      debug:
+        msg: "System Architecture: {{ ansible_architecture }}"
+
+    - name: Print Hostname
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
