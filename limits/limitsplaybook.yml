@@ -1,0 +1,26 @@
+---
+- name: Update and Install Packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update Package Cache
+      apt:
+        update_cache: yes
+      tags:
+        - update
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+      tags:
+        - install
+
+
+
+
+
+  # ansible-playbook -i inventory.ini playbook.yml --limit <ip>
+  # ansible-playbook -i inventory.ini playbook.yml --limit <group>
+
+
