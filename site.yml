@@ -1,0 +1,7 @@
+---
+- name: Deploy Apache using Roles
+  hosts: 34.59.135.208
+  become: yes
+  roles:
+    - my_role
+
