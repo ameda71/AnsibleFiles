@@ -1,0 +1,10 @@
+✅ Key Takeaways from the Ansible Vault Exercise
+🔒 Created an encrypted file using ansible-vault create db_secrets.yml.
+🔍 Verified encryption by trying to view the file with cat db_secrets.yml (output was unreadable).
+🔓 Viewed encrypted content securely with ansible-vault view db_secrets.yml.
+📝 Created a playbook (db_playbook.yml) that references the encrypted file.
+🚀 Ran the playbook using the vault password via ansible-playbook db_playbook.yml --ask-vault-pass.
+🔑 Encrypted an existing file using ansible-vault encrypt inventory.yml.
+❌ Decrypted the file back to plain text using ansible-vault decrypt inventory.yml.
+✏️ Edited an encrypted file without decrypting it via ansible-vault edit db_secrets.yml.
+🏗️ Automated Vault password usage by storing it in vault_pass.txt and running playbooks with --vault-password-file vault_pass.txt.

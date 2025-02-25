@@ -23,7 +23,7 @@
 ## 192.168.1.100
 ## 192.168.1.110
 [teja]
-34.171.247.46 http_port=8090
+34.55.157.212 http_port=8090
 34.59.135.208 http_port=8080
 # If you have multiple hosts following a pattern, you can specify
 # them like this:

@@ -1,0 +1,12 @@
+---
+- name: Secure Database Credentials
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - db_secrets.yml
+
+  tasks:
+    - name: Print Database Credentials
+      debug:
+        msg: "DB User: {{ db_user }}, Password: {{ db_password }}"
+
