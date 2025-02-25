@@ -1,0 +1,25 @@
+---
+- name: Configure Web Server
+  hosts: 34.59.135.208
+  become: yes
+
+  tasks:
+    - name: Install and configure Apache
+      yum:
+        name: httpd
+        state: present
+      notify:
+        - Restart Apache
+        - Enable Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: httpd
+        state: restarted
+
+    - name: Enable Apache
+      service:
+        name: httpd
+        enabled: yes
+
